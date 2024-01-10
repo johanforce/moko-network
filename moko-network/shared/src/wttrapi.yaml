@@ -1,0 +1,298 @@
+openapi: 3.0.0
+info:
+  title: API
+  version: v1
+servers:
+  - url: https://wttr.in
+    description: Production Api
+paths:
+  /{location}:
+    get:
+      tags:
+        - weather
+      summary: Get weather by location
+      parameters:
+        - name: location
+          in: path
+          description: The location parameter for the weather
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: The format parameter for the weather
+          required: false
+          schema:
+            type: string
+            default: "j1"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Weather'
+components:
+  schemas:
+    Weather:
+      type: object
+      required:
+        - pet_type
+      properties:
+        current_condition:
+          type: array
+          items:
+            type: object
+            properties:
+              FeelsLikeC:
+                type: string
+              FeelsLikeF:
+                type: string
+              cloudcover:
+                type: string
+              humidity:
+                type: string
+              lang_vi:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              localObsDateTime:
+                type: string
+              observation_time:
+                type: string
+              precipInches:
+                type: string
+              precipMM:
+                type: string
+              pressure:
+                type: string
+              pressureInches:
+                type: string
+              temp_C:
+                type: string
+              temp_F:
+                type: string
+              uvIndex:
+                type: string
+              visibility:
+                type: string
+              visibilityMiles:
+                type: string
+              weatherCode:
+                type: string
+              weatherDesc:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              weatherIconUrl:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              winddir16Point:
+                type: string
+              winddirDegree:
+                type: string
+              windspeedKmph:
+                type: string
+              windspeedMiles:
+                type: string
+        nearest_area:
+          type: array
+          items:
+            type: object
+            properties:
+              areaName:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              country:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              latitude:
+                type: string
+              longitude:
+                type: string
+              population:
+                type: string
+              region:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+              weatherUrl:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: string
+        request:
+          type: array
+          items:
+            type: object
+            properties:
+              query:
+                type: string
+              type:
+                type: string
+        weather:
+          type: array
+          items:
+            type: object
+            properties:
+              astronomy:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    moon_illumination:
+                      type: string
+                    moon_phase:
+                      type: string
+                    moonrise:
+                      type: string
+                    moonset:
+                      type: string
+                    sunrise:
+                      type: string
+                    sunset:
+                      type: string
+              avgtempC:
+                type: string
+              avgtempF:
+                type: string
+              date:
+                type: string
+                format: date
+              hourly:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    DewPointC:
+                      type: string
+                    DewPointF:
+                      type: string
+                    FeelsLikeC:
+                      type: string
+                    FeelsLikeF:
+                      type: string
+                    HeatIndexC:
+                      type: string
+                    HeatIndexF:
+                      type: string
+                    WindChillC:
+                      type: string
+                    WindChillF:
+                      type: string
+                    WindGustKmph:
+                      type: string
+                    WindGustMiles:
+                      type: string
+                    chanceoffog:
+                      type: string
+                    chanceoffrost:
+                      type: string
+                    chanceofhightemp:
+                      type: string
+                    chanceofovercast:
+                      type: string
+                    chanceofrain:
+                      type: string
+                    chanceofremdry:
+                      type: string
+                    chanceofsnow:
+                      type: string
+                    chanceofsunshine:
+                      type: string
+                    chanceofthunder:
+                      type: string
+                    chanceofwindy:
+                      type: string
+                    cloudcover:
+                      type: string
+                    humidity:
+                      type: string
+                    lang_vi:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                    precipInches:
+                      type: string
+                    precipMM:
+                      type: string
+                    pressure:
+                      type: string
+                    pressureInches:
+                      type: string
+                    tempC:
+                      type: string
+                    tempF:
+                      type: string
+                    time:
+                      type: string
+                    uvIndex:
+                      type: string
+                    visibility:
+                      type: string
+                    visibilityMiles:
+                      type: string
+                    weatherCode:
+                      type: string
+                    weatherDesc:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                    weatherIconUrl:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                    winddir16Point:
+                      type: string
+                    winddirDegree:
+                      type: string
+                    windspeedKmph:
+                      type: string
+                    windspeedMiles:
+                      type: string
+              maxtempC:
+                type: string
+              maxtempF:
+                type: string
+              mintempC:
+                type: string
+              mintempF:
+                type: string
+              sunHour:
+                type: string
+              totalSnow_cm:
+                type: string
+              uvIndex:
+                type: string
