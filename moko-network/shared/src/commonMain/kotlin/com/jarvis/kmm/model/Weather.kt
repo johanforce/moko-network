@@ -1,4 +1,4 @@
-package com.jarvis.kmm
+package com.jarvis.kmm.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

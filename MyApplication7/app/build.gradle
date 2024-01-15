@@ -22,6 +22,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        staging {
+            initWith debug
+            matchingFallbacks = ['debug']
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -54,4 +59,6 @@ dependencies {
     implementation("io.ktor:ktor-client-core:1.6.8")
     implementation("io.ktor:ktor-client-logging:1.6.8")
     implementation("io.ktor:ktor-client-serialization:1.6.8")
+    api("dev.icerock.moko:resources:0.20.1")
+    implementation("com.soywiz.korlibs.klock:klock:2.4.13")
 }
