@@ -5,6 +5,7 @@ plugins {
     id("com.android.library")
     id("dev.icerock.moko.kswift")
     id("dev.icerock.mobile.multiplatform-network-generator")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 version = "1.0"
@@ -27,6 +28,8 @@ kotlin {
 
             export("dev.icerock.moko:mvvm-core:0.13.0")
             export("dev.icerock.moko:mvvm-livedata:0.13.0")
+            export("dev.icerock.moko:resources:0.23.0")
+            export("dev.icerock.moko:graphics:0.9.0") // toUIColor here
         }
     }
 
@@ -40,6 +43,8 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("dev.icerock.moko:network:0.17.0")
+                api("dev.icerock.moko:resources:0.20.1")
+                implementation("com.soywiz.korlibs.klock:klock:2.4.13")
             }
         }
         val commonTest by getting {
@@ -95,3 +100,9 @@ mokoNetwork {
         inputSpec = file("src/wttrapi.yaml")
     }
 }
+
+multiplatformResources {
+    multiplatformResourcesPackage = "com.jarvis.kmm" // required
+    iosBaseLocalizationRegion = "en" // optional, default "en"
+}
+
