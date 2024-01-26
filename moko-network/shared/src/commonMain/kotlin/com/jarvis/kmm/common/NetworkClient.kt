@@ -1,4 +1,4 @@
-package com.jarvis.kmm.viewmodel
+package com.jarvis.kmm.common
 
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
